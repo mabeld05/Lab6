@@ -24,13 +24,15 @@ def encode(password):
         encoded_pass += encoded_char
     return encoded_pass
 
+# Iterates through all characters in string and subtracts 3
 def decode(password):
+    # Stores decoded password
     new_password = ''
     for i in password:
         num = int(i) - 3
-        if num < 0:
+        if num < 0:  # If number is less than 0, it needs to loop back to 9
             char = str(9 + (num + 1))
-        else:
+        else:  # Otherwise just give the number
             char = str(num)
         new_password = new_password + char
     return new_password
@@ -54,8 +56,7 @@ def main():
             print()
         elif user_input == 2:
             decoded_password = decode(encoded_password)
-            print(encoded_password)
-            print(decoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {decoded_password}.')
         elif user_input == 3:
             display_menu = False
             user_continue = False
